@@ -7,5 +7,5 @@ import java.io.Serializable;
 
 @Data
 @MappedSuperclass
-public class AbstractClass implements Serializable {
+public class AbstractEntity implements Serializable {
 }
