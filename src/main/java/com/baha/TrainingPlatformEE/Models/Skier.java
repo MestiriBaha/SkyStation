@@ -1,9 +1,6 @@
 package com.baha.TrainingPlatformEE.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,6 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@Builder
+
 
 @Table(name = "SkiersTable")
 public class Skier extends AbstractEntity {

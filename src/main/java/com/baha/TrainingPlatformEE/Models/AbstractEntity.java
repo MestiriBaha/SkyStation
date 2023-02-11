@@ -1,6 +1,7 @@
 package com.baha.TrainingPlatformEE.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Data;
 import net.bytebuddy.utility.dispatcher.JavaDispatcher;
 import org.apache.logging.log4j.CloseableThreadContext;

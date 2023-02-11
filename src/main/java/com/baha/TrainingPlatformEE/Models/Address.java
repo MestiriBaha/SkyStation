@@ -1,13 +1,11 @@
 package com.baha.TrainingPlatformEE.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Table;
 
+@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

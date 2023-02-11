@@ -12,6 +12,7 @@ import java.util.List;
 //@Getter
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@Builder
 
 @Table(name = "Courses")
 public class Course extends AbstractEntity {

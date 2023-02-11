@@ -1,9 +1,6 @@
 package com.baha.TrainingPlatformEE.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-
+@Builder
 @Table(name = "RegistrationTable")
 public class Registration extends AbstractEntity{
     private Long  numRegistration ;

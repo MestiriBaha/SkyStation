@@ -1,12 +1,13 @@
 package com.baha.TrainingPlatformEE.Models;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
+@Builder
 @Entity
 @Data
 @NoArgsConstructor
