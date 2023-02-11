@@ -2,10 +2,7 @@ package com.baha.TrainingPlatformEE.Models;
 
 import lombok.*;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
 
@@ -27,6 +24,9 @@ public class User extends  AbstractEntity {
     private String photo ;
     @OneToMany(mappedBy = "user")
     private List<Role> roles ;
+    @ManyToOne
+    @JoinColumn(name = "CompanyID")
+    private Company company ;
 
 
 }

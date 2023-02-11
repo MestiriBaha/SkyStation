@@ -28,4 +28,7 @@ public class Skier extends AbstractEntity {
 
     @OneToMany(mappedBy = "skier")
     private List<Registration> registration ;
+    @ManyToMany
+    @JoinTable(name = "SkierPiste" , joinColumns = @JoinColumn(name = "student_id") , inverseJoinColumns = @JoinColumn(name = "PisteID"))
+    private List<Piste> Pistes ;
 }
