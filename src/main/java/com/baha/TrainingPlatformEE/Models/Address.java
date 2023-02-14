@@ -5,8 +5,10 @@ import lombok.*;
 import javax.persistence.Embeddable;
 import javax.persistence.Table;
 
-@Builder
+
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode

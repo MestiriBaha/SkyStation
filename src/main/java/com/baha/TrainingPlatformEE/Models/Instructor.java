@@ -8,7 +8,8 @@ import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
 
-@Builder
+@Getter
+@Setter
 @Data
 @Entity
 @NoArgsConstructor

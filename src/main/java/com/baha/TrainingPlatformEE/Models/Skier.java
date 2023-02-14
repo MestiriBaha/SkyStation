@@ -11,7 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Builder
+@Getter
+@Setter
 
 
 @Table(name = "SkiersTable")

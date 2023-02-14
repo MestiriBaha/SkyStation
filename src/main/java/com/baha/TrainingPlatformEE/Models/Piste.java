@@ -1,16 +1,14 @@
 package com.baha.TrainingPlatformEE.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.List;
 
-@Builder
+@Getter
+@Setter
 @Entity
 @Data
 @NoArgsConstructor

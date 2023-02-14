@@ -7,7 +7,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Builder
+@Getter
+@Setter
 @Entity
 @Data
 @AllArgsConstructor

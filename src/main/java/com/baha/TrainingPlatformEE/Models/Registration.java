@@ -10,7 +10,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Builder
+@Getter
+@Setter
 @Table(name = "RegistrationTable")
 public class Registration extends AbstractEntity{
     private Long  numRegistration ;

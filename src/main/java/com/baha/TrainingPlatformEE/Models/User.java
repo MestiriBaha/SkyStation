@@ -8,7 +8,8 @@ import java.util.List;
 
 @Data
 @Entity
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)

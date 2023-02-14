@@ -1,9 +1,6 @@
 package com.baha.TrainingPlatformEE.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -13,6 +10,8 @@ import java.util.List;
 
 @Entity
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
