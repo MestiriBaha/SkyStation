@@ -23,9 +23,9 @@ public class Course extends AbstractEntity {
     private  Support support ;
     private float Price ;
     private int TimeSlot ;
-    @ManyToOne
-    @JoinColumn(name = "NumInstructor")
-    private Instructor instructor ;
+    //@ManyToOne
+    //@JoinColumn(name = "NumInstructor")
+    //private Instructor instructor ;
     @OneToMany(mappedBy = "course")
     private List<Registration> registrations ;
 

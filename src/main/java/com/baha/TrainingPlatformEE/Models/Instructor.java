@@ -23,7 +23,8 @@ public class Instructor extends AbstractEntity{
     private String lastName ;
     private Date DateOfHire ;
 
-    @OneToMany(mappedBy = "instructor")
+    //@OneToMany(mappedBy = "instructor")
+    @OneToMany
     private List<Course> Courses ;
 
 

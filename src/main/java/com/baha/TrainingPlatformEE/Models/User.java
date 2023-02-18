@@ -23,10 +23,11 @@ public class User extends  AbstractEntity {
     @Embedded
     private Address Address ;
     private String photo ;
-    @OneToMany(mappedBy = "user")
+    @OneToMany()
     private List<Role> roles ;
-    @ManyToOne
-    @JoinColumn(name = "CompanyID")
+
+    //@JoinColumn(name = "CompanyID")
+    @ManyToOne()
     private Company company ;
 
 

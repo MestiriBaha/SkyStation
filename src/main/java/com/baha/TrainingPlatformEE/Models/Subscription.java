@@ -27,8 +27,7 @@ public class Subscription extends AbstractEntity {
     @Column(name = "Price")
     private Float Price ;
     //if we don't add the mapping relation , it will be an error ! it is navigation property !
-    @OneToOne()
-    private Skier skier ;
+
     private TypeSubscription typesubscription ;
 
 }

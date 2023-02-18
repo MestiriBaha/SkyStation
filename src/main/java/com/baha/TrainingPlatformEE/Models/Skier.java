@@ -24,12 +24,11 @@ public class Skier extends AbstractEntity {
     @Embedded
     private Address address ;
     private String Photo ;
-    @OneToOne(mappedBy = "skier")
+    @OneToOne
     private Subscription subscription ;
 
     @OneToMany(mappedBy = "skier")
     private List<Registration> registration ;
-    @ManyToMany
-    @JoinTable(name = "SkierPiste" , joinColumns = @JoinColumn(name = "student_id") , inverseJoinColumns = @JoinColumn(name = "PisteID"))
+    @ManyToMany(mappedBy = "Skiers")
     private List<Piste> Pistes ;
 }

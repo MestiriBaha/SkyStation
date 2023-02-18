@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SkierValidator {
-    public List<String> Validate (SkierDTO skierdto)
+    public static List<String> Validate (SkierDTO skierdto)
     {
         List<String> Errors = new ArrayList<>() ;
         if(skierdto==null)

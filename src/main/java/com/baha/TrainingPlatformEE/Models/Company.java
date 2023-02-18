@@ -25,7 +25,7 @@ public class Company extends AbstractEntity {
     private String Photo ;
     private String Email ;
     private String SiteWeb ;
-    @OneToMany(mappedBy = "Company")
+    @OneToMany(mappedBy = "company")
     private List<User> Users ;
 }
 

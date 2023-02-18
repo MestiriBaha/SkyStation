@@ -2,9 +2,7 @@ package com.baha.TrainingPlatformEE.Models;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
@@ -21,6 +19,7 @@ public class Piste extends AbstractEntity{
     private Integer Length ;
     private Integer Slope ;
     @ManyToMany
+    @JoinTable(name = "SkierPiste" , joinColumns = @JoinColumn(name = "skier_id") , inverseJoinColumns = @JoinColumn(name = "PisteID"))
     private List<Skier> Skiers ;
 
 }

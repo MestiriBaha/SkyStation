@@ -27,7 +27,7 @@ public class SkierDTO {
 
     private List<PisteDTO> Pistes ;
 
-    public SkierDTO FromEntity(Skier skier)
+    public static SkierDTO FromEntity(Skier skier)
     {
         if ( skier == null ) { return null ; }
         return  SkierDTO.builder()
@@ -43,7 +43,7 @@ public class SkierDTO {
                 //subscription
                 .build() ;
     }
-    public Skier ToEntity(SkierDTO skierdto)
+    public static Skier ToEntity(SkierDTO skierdto)
     {
         if ( skierdto == null ) { return null ; }
         Skier skier = new Skier() ;

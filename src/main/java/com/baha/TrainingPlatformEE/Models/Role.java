@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name = "Roles")
 public class Role extends AbstractEntity{
     private String RoleName ;
-    @ManyToOne
-    @JoinColumn(name = "IdUser")
-    private User user ;
+    //@ManyToOne
+    //@JoinColumn(name = "IdUser")
+    //private User user ;
 }
