@@ -21,7 +21,7 @@ public class SkierController implements SkierInterface {
     }
 
     //Second one , FIELD Injection
-    //3rd one Getter Injection
+    //3rd one Setter Injection
     @Override
     public SkierDTO Save(SkierDTO skierdto) {
         return _SkierService.Save(skierdto);

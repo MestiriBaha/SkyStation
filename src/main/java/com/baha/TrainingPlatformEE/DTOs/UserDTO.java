@@ -33,7 +33,7 @@ public class UserDTO {
 
     //Mapping methods : we will be using the donckey method ! at least we will be learning two methods for now !
 
-    public UserDTO FromEntity(User user)
+    public static UserDTO FromEntity(User user)
     {
         if (user==null)  { return null ; //throw an exception
              }
@@ -52,7 +52,7 @@ public class UserDTO {
     }
 
     //the method looks so naive :/
-    public User ToEntity(UserDTO userdto)
+    public static User ToEntity(UserDTO userdto)
     {
         User user = new User() ;
         user.setEmail(userdto.getEmail());

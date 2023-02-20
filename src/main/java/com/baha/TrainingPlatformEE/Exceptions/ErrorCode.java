@@ -3,6 +3,7 @@ package com.baha.TrainingPlatformEE.Exceptions;
 public enum ErrorCode {
     COMPANY_NOT_FOUND(1000),
     USER_NOT_FOUND(2000),
+    USER_NOT_VALID(2001) ,
     SKIER_NOT_FOUND(3000) ,
     SKIER_NOT_VALID(3001) ,
     SUBSCRIPTION_NOT_FOUND(4000) ,
