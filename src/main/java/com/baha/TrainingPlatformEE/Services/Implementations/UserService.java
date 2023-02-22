@@ -63,7 +63,7 @@ public class UserService implements UserInterface {
             return null ;
 
         }
-        Optional<User> user = _UserRepository.findByName(Name) ;
+        Optional<User> user = _UserRepository.findByFirstName(Name) ;
         return Optional.of(UserDTO.FromEntity(user.get())).orElseThrow(()->
                 new EntityNotFoundException("user with that name is not found",ErrorCode.USER_NOT_FOUND)) ;
     }

@@ -65,7 +65,7 @@ public class SkierService implements SkierInterface {
             return null ;
 
         }
-        Optional<Skier> skier = _skierRepository.findByNum(Num) ;
+        Optional<Skier> skier = _skierRepository.findByNumSkier(Num) ;
         return Optional.of(SkierDTO.FromEntity(skier.get())).orElseThrow(() ->
                  new EntityNotFoundException("Searched Skier is not found",ErrorCode.SKIER_NOT_FOUND)) ;
     }

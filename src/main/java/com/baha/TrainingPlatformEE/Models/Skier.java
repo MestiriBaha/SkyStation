@@ -17,7 +17,10 @@ import java.util.List;
 
 @Table(name = "SkiersTable")
 public class Skier extends AbstractEntity {
-    private Long NumSkier ;
+    //gott it makes a huge Problem when we write NumSkier when working with JpaRepository and then services !!
+    //Spring has awful conventions , as an example name FindByNumSkier won't work if we have NumSkier !
+    // it is his way of properties in entities are traversed !!
+    private Long numSkier ;
     private String FirstName ;
     private String LastName ;
     private Date DateOfBirth ;

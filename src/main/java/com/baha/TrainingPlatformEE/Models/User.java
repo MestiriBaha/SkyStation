@@ -15,7 +15,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "AppUsers")
 public class User extends  AbstractEntity {
-    private String FirstName ;
+    //the same for FirstName i have to change it to firstName !!
+    private String firstName ;
     private String LastName ;
     private String Email ;
     private Instant Birthday ;
