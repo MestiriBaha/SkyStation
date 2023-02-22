@@ -26,8 +26,8 @@ public class FlickrConfiguration {
 
     private String ApiSecret ;
 
-    @Bean
-    public Flickr GetFlicker() throws IOException, ExecutionException, InterruptedException, FlickrException {
+    //@Bean
+   /* public Flickr GetFlicker() throws IOException, ExecutionException, InterruptedException, FlickrException {
         //this configuration will be executed only ONCE !!
         Flickr flickr = new Flickr(ApiKey,ApiSecret,new REST()) ;
         //we should only be authenticated using the OAuth specification which is the industry standard
@@ -50,5 +50,5 @@ public class FlickrConfiguration {
         return flickr ;
 
 
-    }
+    }*/
 }
