@@ -1,4 +1,7 @@
 spring :
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
     url: jdbc:mysql://localhost:3306/SkyStationManagement?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimeZoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username : root
@@ -23,3 +26,4 @@ flickr:
   apiSecret: 1f07d3a2506f1466
   appKey: 72157720874235658-b50dc40bbe0c9a6a
   appSecret: ecd861057bf7b716
+
