@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
-public interface InstructorRepository  {
+public interface InstructorRepository extends JpaRepository<Instructor,Long> {
     //extends JpaRepository<Integer,Instructor>
 }

@@ -4,6 +4,6 @@ import com.baha.TrainingPlatformEE.Models.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface CourseRepository  {
+public interface CourseRepository extends JpaRepository<Course,Long> {
     //extends JpaRepository<Integer,Course>
 }
