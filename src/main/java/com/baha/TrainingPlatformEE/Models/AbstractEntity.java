@@ -16,20 +16,6 @@ import java.time.Instant;
 
 @Data
 @MappedSuperclass
-@EntityListeners(value = AuditingEntityListener.class)
 public class AbstractEntity implements Serializable {
-    @Id
-    @GeneratedValue
-    private Integer ID  ;
-
-    @CreatedBy
-    @Column(name = "CreationDate" , nullable = false)
-    @JsonIgnore
-    private Instant CreationDate ;
-
-    @LastModifiedDate
-    @Column(name = "LastModifiedDate")
-    @JsonIgnore
-    private Instant LastModifiedDate ;
 
 }

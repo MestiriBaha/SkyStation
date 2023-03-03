@@ -20,9 +20,11 @@ public class Skier extends AbstractEntity {
     //gott it makes a huge Problem when we write NumSkier when working with JpaRepository and then services !!
     //Spring has awful conventions , as an example name FindByNumSkier won't work if we have NumSkier !
     // it is his way of properties in entities are traversed !!
+    @Id
     private Long numSkier ;
     private String FirstName ;
     private String LastName ;
+    @Temporal(TemporalType.DATE)
     private Date DateOfBirth ;
     @Embedded
     private Address address ;

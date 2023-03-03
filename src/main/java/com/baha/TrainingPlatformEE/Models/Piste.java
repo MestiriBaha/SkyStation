@@ -13,8 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "Pistes")
 public class Piste extends AbstractEntity{
+    @Id
     private Long NumPiste ;
     private String NamePiste ;
+    @Enumerated(EnumType.STRING)
     private Color color ;
     private Integer Length ;
     private Integer Slope ;

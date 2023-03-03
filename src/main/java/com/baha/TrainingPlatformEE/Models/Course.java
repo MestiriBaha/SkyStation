@@ -17,9 +17,12 @@ import java.util.List;
 
 @Table(name = "Courses")
 public class Course extends AbstractEntity {
+    @Id
     private Long NumCourse ;
     private int  Level ;
+    @Enumerated(EnumType.STRING)
     private TypeCourse typecourse ;
+    @Enumerated(EnumType.STRING)
     private  Support support ;
     private float Price ;
     private int TimeSlot ;

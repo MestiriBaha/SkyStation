@@ -27,7 +27,7 @@ public interface SkierController {
     })
     SkierDTO Save (@RequestBody SkierDTO skierdto) ;
 
-    @GetMapping(value = APP_ROOT + "Skiers/{IdSkier}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = APP_ROOT + "FindbyNum/{IdSkier}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "searching for a specific Skier",notes = "Querying the desired skier from the database" , response = SkierDTO.class)
     @ApiResponses({
             @ApiResponse(code = 200 , message = " the desired skier is founded") ,

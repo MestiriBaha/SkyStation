@@ -16,6 +16,9 @@ import java.util.List;
 @Table(name = "AppUsers")
 public class User extends  AbstractEntity {
     //the same for FirstName i have to change it to firstName !!
+    @Column(name = "UserID")
+    @Id
+    private Integer ID  ;
     private String firstName ;
     private String LastName ;
     private String Email ;

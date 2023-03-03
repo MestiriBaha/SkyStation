@@ -2,10 +2,7 @@ package com.baha.TrainingPlatformEE.Models;
 
 import lombok.*;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -17,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "CompanyInfo")
 public class Company extends AbstractEntity {
-
+    @Id
     private String Name ;
     private String Description ;
     @Embedded

@@ -14,6 +14,7 @@ import java.util.List;
 @Setter
 @Table(name = "RegistrationTable")
 public class Registration extends AbstractEntity{
+    @Id
     private Long  numRegistration ;
     private int numWeek ;
     @ManyToOne()

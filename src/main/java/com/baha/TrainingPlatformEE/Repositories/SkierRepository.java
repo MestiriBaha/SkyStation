@@ -12,4 +12,5 @@ public interface SkierRepository extends JpaRepository<Skier,Integer> {
     //next time , get to the method to check for the parameters !
 
     Optional<Skier> findByNumSkier(long num) ;
+    
 }
