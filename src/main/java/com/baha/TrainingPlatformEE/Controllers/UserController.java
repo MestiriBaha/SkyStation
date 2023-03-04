@@ -1,16 +1,16 @@
 package com.baha.TrainingPlatformEE.Controllers;
 
 import com.baha.TrainingPlatformEE.DTOs.UserDTO;
-import com.baha.TrainingPlatformEE.Services.Implementations.UserService;
+import com.baha.TrainingPlatformEE.Services.Implementations.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController implements com.baha.TrainingPlatformEE.Controllers.Interfaces.UserController {
 
-    private UserService _userservice ;
+    private UserServiceImpl _userservice ;
     @Autowired
-    public UserController(UserService userservice)
+    public UserController(UserServiceImpl userservice)
     {
         _userservice = userservice ;
     }

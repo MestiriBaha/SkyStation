@@ -22,7 +22,7 @@ public class RegistrationDTO {
 
     private SkierDTO skier ;
 
-    public RegistrationDTO FromEntity(Registration registration)
+    public static RegistrationDTO FromEntity(Registration registration)
     {
         if (registration == null ) {return null ; }
 
@@ -34,7 +34,7 @@ public class RegistrationDTO {
                 //skier
                 .build() ;
     }
-    public Registration ToEntity(RegistrationDTO registrationdto)
+    public static  Registration ToEntity(RegistrationDTO registrationdto)
     {
         if ( registrationdto == null ) {return null ; }
         Registration registration = new Registration() ;

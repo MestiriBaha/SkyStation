@@ -27,7 +27,7 @@ public class SubscriptionDTO {
 
     private SkierDTO skier ;
     private TypeSubscription typesubscription ;
-    public SubscriptionDTO FromEntity(Subscription subscription)
+    public static SubscriptionDTO FromEntity(Subscription subscription)
     {
         if(subscription == null ) { return null ; }
         return SubscriptionDTO.builder()
@@ -40,7 +40,7 @@ public class SubscriptionDTO {
                 //typesubscription
                 .build() ;
     }
-    public Subscription ToEntity(SubscriptionDTO subscriptiondto)
+    public static Subscription ToEntity(SubscriptionDTO subscriptiondto)
     {
         if (subscriptiondto == null) { return null ;  }
         Subscription subscription = new Subscription() ;

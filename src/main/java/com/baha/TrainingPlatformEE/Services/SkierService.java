@@ -4,15 +4,14 @@ import com.baha.TrainingPlatformEE.DTOs.SkierDTO;
 
 import java.util.List;
 
-public interface SkierInterface {
+public interface SkierService {
 
     SkierDTO Save (SkierDTO skierdto) ;
-    SkierDTO findById (Integer id) ;
-    SkierDTO findByNum (Long Num) ;
+    SkierDTO findBySkierNum (Long skierNum) ;
 
     List<SkierDTO> findAll() ;
 
-    void Delete (Integer id)  ;
+    void Delete (Long skierNum)  ;
 
 
 }

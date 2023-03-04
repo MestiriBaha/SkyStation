@@ -6,10 +6,8 @@ import com.baha.TrainingPlatformEE.Exceptions.ErrorCode;
 import com.baha.TrainingPlatformEE.Exceptions.InvalidEntityException;
 import com.baha.TrainingPlatformEE.Models.Skier;
 import com.baha.TrainingPlatformEE.Repositories.SkierRepository;
-import com.baha.TrainingPlatformEE.Services.SkierInterface;
+import com.baha.TrainingPlatformEE.Services.SkierService;
 import com.baha.TrainingPlatformEE.Validators.SkierValidator;
-import lombok.AllArgsConstructor;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,11 +19,11 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 
-public class SkierService implements SkierInterface {
+public class SkierServiceImpl implements SkierService {
 
     private SkierRepository _skierRepository ;
     @Autowired
-    public SkierService(SkierRepository skierRepository)
+    public SkierServiceImpl(SkierRepository skierRepository)
     {
        _skierRepository = skierRepository ;
     }
@@ -43,33 +41,17 @@ public class SkierService implements SkierInterface {
     }
 
     @Override
-    public SkierDTO findById(Integer id) {
-        if(id == null)
+    public SkierDTO findBySkierNum(Long skierNum) {
+        if(skierNum == null)
         {
-            log.error("The Id is not valid");
+            log.error("The Skier Num is not valid");
             return null ;
         }
-        Optional<Skier> skier = _skierRepository.findById(id) ;
+        Optional<Skier> skier = _skierRepository.findById(skierNum) ;
         return Optional.of(SkierDTO.FromEntity(skier.get())).orElseThrow(
                 () -> new EntityNotFoundException("Searched entity is not found",ErrorCode.SKIER_NOT_FOUND)) ;
 
     }
-
-    //this method is personalised and Jpa Repository doesn't have a template of it !!
-    @Override
-    public SkierDTO findByNum(Long Num) {
-
-        if(Num==0)
-        {
-            log.error("Numero Skier is null ");
-            return null ;
-
-        }
-        Optional<Skier> skier = _skierRepository.findByNumSkier(Num) ;
-        return Optional.of(SkierDTO.FromEntity(skier.get())).orElseThrow(() ->
-                 new EntityNotFoundException("Searched Skier is not found",ErrorCode.SKIER_NOT_FOUND)) ;
-    }
-
     @Override
     public List<SkierDTO> findAll() {
         return _skierRepository.findAll().stream()
@@ -78,15 +60,15 @@ public class SkierService implements SkierInterface {
     }
 
     @Override
-    public void Delete(Integer id) {
-        if(id==null)
+    public void Delete(Long skierNum) {
+        if(skierNum==null)
         {
-            log.error("id is invalid ");
-            // i can't write implement null because we have void !! wake up !
+            log.error(" SkierNum is invalid ");
 
             return  ;
         }
-         _skierRepository.deleteById(id);
+         _skierRepository.deleteById(skierNum);
+
 
     }
 }

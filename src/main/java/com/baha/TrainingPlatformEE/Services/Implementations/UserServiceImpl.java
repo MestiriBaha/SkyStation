@@ -6,24 +6,24 @@ import com.baha.TrainingPlatformEE.Exceptions.ErrorCode;
 import com.baha.TrainingPlatformEE.Exceptions.InvalidEntityException;
 import com.baha.TrainingPlatformEE.Models.User;
 import com.baha.TrainingPlatformEE.Repositories.UserRepository;
-import com.baha.TrainingPlatformEE.Services.UserInterface;
+import com.baha.TrainingPlatformEE.Services.UserService;
 import com.baha.TrainingPlatformEE.Validators.UserValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
-public class UserService implements UserInterface {
+public class UserServiceImpl implements UserService {
 
     private UserRepository _UserRepository ;
     @Autowired
 
-    public UserService(UserRepository userRepository)
+    public UserServiceImpl(UserRepository userRepository)
     {
         _UserRepository = userRepository ;
     }
@@ -33,7 +33,7 @@ public class UserService implements UserInterface {
         if (!errors.isEmpty()) {
 
             log.error("Invalid User",userdto);
-            throw new InvalidEntityException("user is not valid", ErrorCode.USER_NOT_FOUND,errors) ;
+            throw new InvalidEntityException("user is not valid", ErrorCode.USER_NOT_VALID,errors) ;
 
         }
         return UserDTO.FromEntity(_UserRepository.save(UserDTO.ToEntity(userdto))) ;
@@ -55,26 +55,22 @@ public class UserService implements UserInterface {
 
     }
 
-    @Override
-    public UserDTO findByName(String Name) {
-        if(Name.isEmpty())
-        {
-            log.error("input is null");
-            return null ;
-
-        }
-        Optional<User> user = _UserRepository.findByFirstName(Name) ;
-        return Optional.of(UserDTO.FromEntity(user.get())).orElseThrow(()->
-                new EntityNotFoundException("user with that name is not found",ErrorCode.USER_NOT_FOUND)) ;
-    }
 
     @Override
     public List<UserDTO> findAll() {
-        return null;
+
+        return _UserRepository.findAll().stream()
+                .map(UserDTO::FromEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
     public void Delete(Integer id) {
-
+        if(id==null)
+        {
+            log.error("User ID is Null !! ");
+            return ;
+        }
+         _UserRepository.deleteById(id);
     }
 }

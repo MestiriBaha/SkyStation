@@ -20,7 +20,7 @@ public class PisteDTO {
     private Integer Slope ;
     private List<SkierDTO> Skiers ;
 
-    public PisteDTO FromEntity(Piste piste)
+    public static PisteDTO FromEntity(Piste piste)
     {
         if (piste == null ) { return null ; }
         return PisteDTO.builder()
@@ -34,7 +34,7 @@ public class PisteDTO {
                 .build() ;
     }
 
-    public Piste ToEntiy(PisteDTO pistedto)
+    public static Piste ToEntiy(PisteDTO pistedto)
     {
         if (pistedto == null ) { return null ; }
         Piste piste =  new Piste() ;

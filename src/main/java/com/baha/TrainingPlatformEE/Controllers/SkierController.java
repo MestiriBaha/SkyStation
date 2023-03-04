@@ -1,23 +1,23 @@
 package com.baha.TrainingPlatformEE.Controllers;
 
 import com.baha.TrainingPlatformEE.DTOs.SkierDTO;
-import com.baha.TrainingPlatformEE.Services.Implementations.SkierService;
-import com.baha.TrainingPlatformEE.Services.SkierInterface;
+import com.baha.TrainingPlatformEE.Services.Implementations.SkierServiceImpl;
+import com.baha.TrainingPlatformEE.Services.SkierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-public class SkierController implements SkierInterface {
+public class SkierController implements SkierService {
 
     //We have 3 types on injections
     //First one , Constructor injection
-    private SkierInterface _SkierService ;
+    private SkierService _SkierService ;
     @Autowired
-    public SkierController(SkierService skierService)
+    public SkierController(SkierServiceImpl skierServiceImpl)
     {
-        _SkierService = skierService ;
+        _SkierService = skierServiceImpl;
     }
 
     //Second one , FIELD Injection

@@ -21,7 +21,7 @@ public class InstructorDTO {
 
     private List<CourseDTO> Courses ;
 
-    public InstructorDTO FromEntity(Instructor instructor)
+    public static InstructorDTO FromEntity(Instructor instructor)
     {
         if (instructor==null) { return null ; }
         return InstructorDTO.builder()
@@ -34,7 +34,7 @@ public class InstructorDTO {
 
                 .build() ;
     }
-    public Instructor ToEntity(InstructorDTO instructordto)
+    public static Instructor ToEntity(InstructorDTO instructordto)
     {
         if (instructordto == null ) { return null ; }
         Instructor instructor = new Instructor() ;

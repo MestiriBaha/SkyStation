@@ -23,7 +23,7 @@ public class CompanyDTO {
     private String Email ;
     private String WebSite ;
     private List<UserDTO> Users ;
-    public CompanyDTO FromEntity(Company company)
+    public static CompanyDTO FromEntity(Company company)
     {
         if (company == null) {return null ; }
         return CompanyDTO.builder()
@@ -37,7 +37,7 @@ public class CompanyDTO {
 
                 .build();
     }
-    public Company ToEntity(CompanyDTO companydto){
+    public static Company ToEntity(CompanyDTO companydto){
         if (companydto == null) {return null ; }
         Company company = new Company() ;
         company.setDescription(companydto.getDescription());

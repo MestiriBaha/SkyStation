@@ -25,7 +25,7 @@ public class CourseDTO {
 
     private List<RegistrationDTO> registrations ;
 
-    public CourseDTO FromEntity(Course course)
+    public static CourseDTO FromEntity(Course course)
     {
         if (course ==null) { return null ; }
         return CourseDTO.builder()
@@ -41,7 +41,7 @@ public class CourseDTO {
 
                 .build();
     }
-    public Course ToEntity(CourseDTO coursedto)
+    public static Course ToEntity(CourseDTO coursedto)
     {
         if ( coursedto == null ) { return null ; }
         Course course = new Course() ;
