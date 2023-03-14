@@ -12,6 +12,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
+@Builder
 @Table(name = "RegistrationTable")
 public class Registration extends AbstractEntity{
     @Id

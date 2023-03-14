@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 @Builder
 @Data
 public class RegistrationDTO {
-    private Integer ID  ;
 
     private Long  numRegistration ;
     private int numWeek ;
@@ -27,23 +26,22 @@ public class RegistrationDTO {
         if (registration == null ) {return null ; }
 
         return RegistrationDTO.builder()
-                .ID(registration.getID())
-                //.course(registration.getCourse())
                 .numWeek(registration.getNumWeek())
                 .numRegistration(registration.getNumRegistration())
-                //skier
+                .course(CourseDTO.FromEntity(registration.getCourse()))
+                .skier(SkierDTO.FromEntity(registration.getSkier()))
                 .build() ;
     }
     public static  Registration ToEntity(RegistrationDTO registrationdto)
     {
         if ( registrationdto == null ) {return null ; }
-        Registration registration = new Registration() ;
-        registration.setID(registrationdto.getID());
-        registration.setNumWeek(registrationdto.getNumWeek());
-        registration.setNumRegistration(registrationdto.getNumRegistration());
-        //skier
-        //course
+         return
+                 Registration.builder()
+                         .course(CourseDTO.ToEntity(registrationdto.getCourse()))
+                         .numRegistration(registrationdto.getNumRegistration())
+                         .numWeek(registrationdto.getNumWeek())
+                         .skier(SkierDTO.ToEntity(registrationdto.getSkier()))
 
-        return registration ;
+                         .build() ;
     }
 }

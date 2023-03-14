@@ -17,22 +17,21 @@ public class RoleDTO {
 
 
     private UserDTO use ;
-    public RoleDTO FromEntity(Role role)
+    public static RoleDTO FromEntity(Role role)
     {
         if (role == null ) { return null ; }
         return RoleDTO.builder()
-                .ID(role.getID())
+                .ID(role.getRoleid())
                 .RoleName(role.getRoleName())
-                //userdto
                 .build() ;
     }
-    public Role ToEntity(RoleDTO roledto)
+    public static Role ToEntity(RoleDTO roledto)
     {
         if (roledto == null ) { return null ; }
-        Role role = new Role() ;
-        role.setID(roledto.getID());
-        role.setRoleName(roledto.getRoleName());
-        //userdto
-        return role ;
+        return
+                 Role.builder()
+                .Roleid(roledto.getID())
+                .RoleName(roledto.getRoleName())
+                .build() ;
     }
 }

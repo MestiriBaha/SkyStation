@@ -13,8 +13,6 @@ import java.util.Date;
 @Data
 @Builder
 public class SubscriptionDTO {
-    private Integer ID  ;
-
 
     private Long NumSub ;
 
@@ -31,27 +29,23 @@ public class SubscriptionDTO {
     {
         if(subscription == null ) { return null ; }
         return SubscriptionDTO.builder()
-                .ID(subscription.getID())
                 .NumSub(subscription.getNumSub())
                 .StartDate(subscription.getStartDate())
                 .EndDate(subscription.getEndDate())
                 .Price(subscription.getPrice())
-                //skier
-                //typesubscription
+                .typesubscription(subscription.getTypesubscription())
                 .build() ;
     }
     public static Subscription ToEntity(SubscriptionDTO subscriptiondto)
     {
         if (subscriptiondto == null) { return null ;  }
-        Subscription subscription = new Subscription() ;
-        subscription.setID(subscriptiondto.getID());
-        subscription.setNumSub(subscriptiondto.getNumSub());
-        subscription.setPrice(subscription.getPrice());
-        subscription.setStartDate(subscription.getStartDate());
-        subscription.setEndDate(subscription.getEndDate());
-        //skier
-        //typesubscription
-        return subscription ;
+        return Subscription.builder()
+                .NumSub(subscriptiondto.getNumSub())
+                .EndDate(subscriptiondto.getEndDate())
+                .StartDate(subscriptiondto.getStartDate())
+                .Price(subscriptiondto.getPrice())
+                .typesubscription(subscriptiondto.getTypesubscription())
+                .build() ;
     }
 
 }

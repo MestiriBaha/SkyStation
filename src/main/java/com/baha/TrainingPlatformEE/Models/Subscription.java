@@ -12,6 +12,7 @@ import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "SubscriptionsTable")
 public class Subscription extends AbstractEntity {

@@ -13,8 +13,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
-
-
+@Builder
 @Table(name = "SkiersTable")
 public class Skier extends AbstractEntity {
     //gott it makes a huge Problem when we write NumSkier when working with JpaRepository and then services !!

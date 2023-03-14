@@ -9,12 +9,14 @@ import java.util.List;
 @Data
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "CompanyInfo")
 public class Company extends AbstractEntity {
     @Id
+    private Integer Companyid ;
     private String Name ;
     private String Description ;
     @Embedded

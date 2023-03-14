@@ -1,26 +1,16 @@
 package com.baha.TrainingPlatformEE.Controllers;
 
 import com.baha.TrainingPlatformEE.DTOs.UserDTO;
-import com.baha.TrainingPlatformEE.Services.Implementations.UserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
+import static com.baha.TrainingPlatformEE.Utils.Constant.APP_ROOT ;
 @RestController
-public class UserController implements com.baha.TrainingPlatformEE.Controllers.Interfaces.UserController {
+public class UserController {
+    @PostMapping(path = APP_ROOT+"/Users/User",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    UserDTO save(UserDTO userdto) { return null ; };
 
-    private UserServiceImpl _userservice ;
-    @Autowired
-    public UserController(UserServiceImpl userservice)
-    {
-        _userservice = userservice ;
-    }
-    @Override
-    public UserDTO save(UserDTO userdto) {
-        return _userservice.Save(userdto);
-    }
+    @GetMapping(path = APP_ROOT+"Users/{UserId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    UserDTO findById(@PathVariable(name = "UserId") Integer id) {return null ; };
 
-    @Override
-    public UserDTO findById(Integer id) {
-        return _userservice.findById(id);
-    }
 }

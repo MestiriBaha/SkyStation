@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Builder
 @Embeddable
 public class Address {
     private String Address1 ;

@@ -7,11 +7,11 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @Builder
 public class PisteDTO {
-    private Integer ID  ;
 
     private Long NumPiste ;
     private String NamePiste ;
@@ -24,30 +24,37 @@ public class PisteDTO {
     {
         if (piste == null ) { return null ; }
         return PisteDTO.builder()
-                .ID(piste.getID())
                 .NamePiste(piste.getNamePiste())
                 .color(piste.getColor())
                 .Length(piste.getLength())
                 .Slope(piste.getSlope())
                 .NumPiste(piste.getNumPiste())
-                //.skier
+                .Skiers(
+                        piste.getSkiers()
+                                .stream()
+                                .map(SkierDTO::FromEntity)
+                                .collect(Collectors.toList())
+                )
                 .build() ;
     }
 
     public static Piste ToEntiy(PisteDTO pistedto)
     {
         if (pistedto == null ) { return null ; }
-        Piste piste =  new Piste() ;
-        piste.setNamePiste(pistedto.getNamePiste());
-        piste.setNumPiste(pistedto.getNumPiste());
-        piste.setSlope(pistedto.getSlope());
-        piste.setLength(pistedto.getLength());
-        piste.setColor(pistedto.getColor());
-        piste.setID(pistedto.getID());
-        //skiers
-
-
-        return piste ;
+        return Piste.builder()
+                .NumPiste(pistedto.getNumPiste())
+                .NamePiste(pistedto.getNamePiste())
+                .color(pistedto.getColor())
+                .Length(pistedto.getLength())
+                .Slope(pistedto.getSlope())
+                .Skiers(
+                        pistedto.getSkiers() !=null ?
+                                pistedto.getSkiers()
+                                        .stream()
+                                        .map(SkierDTO::ToEntity)
+                                        .collect(Collectors.toList()) : null
+                )
+                .build() ;
     }
 
 

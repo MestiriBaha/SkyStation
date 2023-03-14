@@ -14,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
-
+@Builder
 @Table(name = "Courses")
 public class Course extends AbstractEntity {
     @Id

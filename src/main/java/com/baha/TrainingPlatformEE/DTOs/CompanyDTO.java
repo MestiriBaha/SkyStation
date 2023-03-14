@@ -3,6 +3,7 @@ package com.baha.TrainingPlatformEE.DTOs;
 import com.baha.TrainingPlatformEE.Models.Address;
 import com.baha.TrainingPlatformEE.Models.Company;
 import com.baha.TrainingPlatformEE.Models.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 
@@ -22,33 +23,31 @@ public class CompanyDTO {
     private String Photo ;
     private String Email ;
     private String WebSite ;
+    @JsonIgnore
     private List<UserDTO> Users ;
     public static CompanyDTO FromEntity(Company company)
     {
         if (company == null) {return null ; }
         return CompanyDTO.builder()
-                .ID(company.getID())
                 .Name(company.getName())
                 .Photo(company.getPhoto())
                 .Email(company.getEmail())
                 .WebSite(company.getSiteWeb())
                 .Description(company.getDescription())
-                //.Address()
-
+                .Address(AddressDTO.FromEntity(company.getAddress()))
+                //we are not going to show the users  !! it is a choice more than an implementation !!
                 .build();
     }
     public static Company ToEntity(CompanyDTO companydto){
         if (companydto == null) {return null ; }
-        Company company = new Company() ;
-        company.setDescription(companydto.getDescription());
-        company.setEmail(companydto.getEmail());
-        company.setPhoto(companydto.getPhoto());
-        company.setName(companydto.getName());
-        company.setSiteWeb(companydto.getWebSite());
-        company.setID(companydto.getID());
-        //company.Address(companydto.getDescription());
-        // we have to take care of the associations !
-        return company ;
+        return Company.builder()
+                .Companyid(companydto.getID())
+                .Description(companydto.getDescription())
+                .Email(companydto.getEmail())
+                .Photo(companydto.getPhoto())
+                .Name(companydto.getName())
+                .Address(AddressDTO.ToEntity(companydto.getAddress()))
+                .build() ;
 
 
     }

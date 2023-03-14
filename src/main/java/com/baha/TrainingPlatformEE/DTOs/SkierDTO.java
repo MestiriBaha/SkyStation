@@ -7,11 +7,11 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Builder
 @Data
 public class SkierDTO {
-    private Integer ID  ;
 
     private Long NumSkier ;
     private String FirstName ;
@@ -36,28 +36,49 @@ public class SkierDTO {
                 .Photo(skier.getPhoto())
                 .DateOfBirth(skier.getDateOfBirth())
                 .NumSkier(skier.getNumSkier())
-                .ID(skier.getID())
-                //list of piste dto
-                //registration dto list
-                //address dto
-                //subscription
+                .address(AddressDTO.FromEntity(skier.getAddress()))
+                .Pistes(
+                        skier.getPistes() != null ?
+                        skier.getPistes()
+                                .stream()
+                                .map(PisteDTO::FromEntity)
+                                .collect(Collectors.toList()) : null
+                )
+                .subscription(SubscriptionDTO.FromEntity(skier.getSubscription()))
+                .registration(
+                        //i NEED TO FULLY UNDERSTAND THESE NOTATIONS
+                        skier.getRegistration() != null ?
+                        skier.getRegistration()
+                                .stream()
+                                .map(RegistrationDTO::FromEntity)
+                                .collect(Collectors.toList()) : null
+                )
                 .build() ;
     }
     public static Skier ToEntity(SkierDTO skierdto)
     {
         if ( skierdto == null ) { return null ; }
-        Skier skier = new Skier() ;
-        skier.setNumSkier(skierdto.getNumSkier());
-        skier.setPhoto(skierdto.getPhoto());
-        skier.setID(skier.getID());
-        skier.setDateOfBirth(skier.getDateOfBirth());
-        skier.setFirstName(skierdto.getFirstName());
-        skier.setLastName(skier.getLastName());
-        //piste dto
-        // regsitration
-        // address
-        //subsciption
-        return skier ;
+        return Skier.builder()
+                .numSkier(skierdto.getNumSkier())
+                .FirstName(skierdto.getFirstName())
+                .LastName(skierdto.getLastName())
+                .DateOfBirth(skierdto.getDateOfBirth())
+                .address(AddressDTO.ToEntity(skierdto.getAddress()))
+                .Photo(skierdto.getPhoto())
+                .subscription(SubscriptionDTO.ToEntity(skierdto.getSubscription()))
+                .registration(
+                        skierdto.registration
+                                .stream().map(
+                                        RegistrationDTO::ToEntity
+                                )
+                                .collect(Collectors.toList())
+                )
+                .Pistes(
+                        skierdto.Pistes
+                                .stream().map(PisteDTO::ToEntiy)
+                                .collect(Collectors.toList())
+                )
+                .build();
 
 
 

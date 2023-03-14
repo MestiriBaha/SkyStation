@@ -12,8 +12,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "Roles")
+@Builder
 public class Role extends AbstractEntity{
     @Id
+    private Integer Roleid ;
+
     private String RoleName ;
     //@ManyToOne
     //@JoinColumn(name = "IdUser")

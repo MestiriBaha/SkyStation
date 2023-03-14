@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Pistes")

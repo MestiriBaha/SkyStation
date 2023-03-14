@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication()
-@EntityScan(basePackages = {"com.baha.TrainingPlatformEE.Models"})
+//@EntityScan(basePackages = {"com.baha.TrainingPlatformEE.Models"})
 
-@ComponentScan(basePackages = {"com.baha.TrainingPlatformEE.Services.Implementations","com.baha.TrainingPlatformEE.Controllers","com.baha.TrainingPlatformEE.Repositories"})
-@EnableJpaRepositories(basePackages = {"com.baha.TrainingPlatformEE.Repositories"})
+//@ComponentScan(basePackages = {"com.baha.TrainingPlatformEE.Services.Implementations","com.baha.TrainingPlatformEE.Controllers","com.baha.TrainingPlatformEE.Repositories"})
+//@EnableJpaRepositories(basePackages = {"com.baha.TrainingPlatformEE.Repositories"})
 public class TrainingPlatformEeApplication {
 
 	public static void main(String[] args) {

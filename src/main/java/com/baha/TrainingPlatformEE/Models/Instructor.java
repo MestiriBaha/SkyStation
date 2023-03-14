@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-
+@Builder
 @Table(name = "Instructors")
 public class Instructor extends AbstractEntity{
     @Id

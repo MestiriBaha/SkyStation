@@ -22,9 +22,9 @@ public interface SubscriptionRepository extends JpaRepository<Subscription,Long>
     @Query(value = "SELECT * FROM SubscriptionsTable ",nativeQuery = true)
     void retrieveSubscriptions() ;
 
-    @Query("SELECT subscriptions FROM Subscription subscriptions WHERE Subscription.typesubscription=?1")
+    @Query("SELECT subscriptions FROM Subscription subscriptions WHERE subscriptions.typesubscription=?1")
     Set<Subscription> getSubscriptionByType(TypeSubscription type) ;
-    @Query("SELECT subscriptions FROM Subscription subscriptions where Subscription .StartDate=?1")
+    @Query("SELECT subscriptions FROM Subscription subscriptions where subscriptions.StartDate=?1")
     List<Subscription> findByStartDate(LocalDate startDate) ;
 
 

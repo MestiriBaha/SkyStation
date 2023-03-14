@@ -5,6 +5,8 @@ import com.baha.TrainingPlatformEE.Exceptions.EntityNotFoundException;
 import com.baha.TrainingPlatformEE.Exceptions.ErrorCode;
 import com.baha.TrainingPlatformEE.Exceptions.InvalidEntityException;
 import com.baha.TrainingPlatformEE.Models.Skier;
+import com.baha.TrainingPlatformEE.Models.Subscription;
+import com.baha.TrainingPlatformEE.Models.TypeSubscription;
 import com.baha.TrainingPlatformEE.Repositories.SkierRepository;
 import com.baha.TrainingPlatformEE.Services.SkierService;
 import com.baha.TrainingPlatformEE.Validators.SkierValidator;
@@ -70,5 +72,18 @@ public class SkierServiceImpl implements SkierService {
          _skierRepository.deleteById(skierNum);
 
 
+    }
+
+    @Override
+    public List<SkierDTO> retrieveSkiersBySubscriptionType(TypeSubscription subscription) {
+        TypeSubscription subscriptions[] = TypeSubscription.values() ;
+        for(TypeSubscription iteration  : subscriptions)
+        {
+            if (subscription!=iteration) { log.error("parameter doesn't exist"); return null ; }
+        }
+        return _skierRepository.retrieveSkiersBySubscriptionType(subscription)
+                .stream()
+                .map(SkierDTO::FromEntity)
+                .collect(Collectors.toList());
     }
 }

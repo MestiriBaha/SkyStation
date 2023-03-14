@@ -7,11 +7,12 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Builder
 @Data
 
 public class InstructorDTO {
-    private Integer ID  ;
 
     private Long NumInstructor ;
     private  String firstName ;
@@ -25,26 +26,35 @@ public class InstructorDTO {
     {
         if (instructor==null) { return null ; }
         return InstructorDTO.builder()
-                .ID(instructor.getID())
                 .firstName(instructor.getFirstName())
                 .lastName(instructor.getLastName())
                 .DateOfHire(instructor.getDateOfHire())
                 .NumInstructor(instructor.getNumInstructor())
-                //.COURSES !!
+                .Courses(
+                        instructor.getCourses() != null  ?
+                                instructor.getCourses()
+                                        .stream().map(
+                                                CourseDTO::FromEntity
+                                        ).collect(Collectors.toList()) : null
+                )
 
                 .build() ;
     }
     public static Instructor ToEntity(InstructorDTO instructordto)
     {
         if (instructordto == null ) { return null ; }
-        Instructor instructor = new Instructor() ;
-        instructor.setID(instructordto.getID());
-        instructor.setFirstName(instructordto.getFirstName());
-        instructor.setLastName(instructordto.getLastName());
-        instructor.setDateOfHire(instructordto.getDateOfHire());
-        instructor.setNumInstructor(instructordto.getNumInstructor());
-        //courses
-
-        return instructor ;
+         return Instructor.builder()
+                 .NumInstructor(instructordto.getNumInstructor())
+                 .firstName(instructordto.getFirstName())
+                 .lastName(instructordto.getLastName())
+                 .DateOfHire(instructordto.getDateOfHire())
+                 .Courses(
+                         instructordto.getCourses() !=null ?
+                                 instructordto.getCourses()
+                                         .stream()
+                                         .map(CourseDTO::ToEntity)
+                                         .collect(Collectors.toList()) : null
+                 )
+                 .build() ;
     }
 }
